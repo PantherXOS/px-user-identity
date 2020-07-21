@@ -34,9 +34,10 @@ LONG_DESCRIPTION = (HERE / "README.md").read_text()
 LONG_DESC_TYPE = "text/markdown"
 
 INSTALL_REQUIRES = [
-    'requests==2.22.0',
-    'authlib==0.14.3',
-    'pycryptodomex==3.9.8',
+    'px_device_identity>=0.6.3,<0.7',
+    #'requests==2.22.0',
+    #'authlib==0.14.3',
+    #'pycryptodomex==3.9.8',
     'exitstatus==2.0.1',
     'shortuuid==1.0.1',
     'pyyaml==5.3.1'
