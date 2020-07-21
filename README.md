@@ -1,10 +1,7 @@
-# PantherX Device Identity Manager
+# PantherX User Identity Manager
 
-- Generates ECC/RSA keypair
-   - saves to file `~/.config/device` (`private.pem`, `public.pem`)
-   - via TPM2 (RSA only)
+- Generates ECC/RSA keypair and user configuration
 - Generates and saves JWK from public key
-   - saves to file `~/.config/device` (`public_jwk.json`)
 
 ### Supported cryptography
 
@@ -41,9 +38,9 @@ $ pip install .
 
 ## Run
 
-### Initiate device:
+### Initiate user:
 
-Overview of device types:
+Overview of user types:
 
 - `STANDALONE`: Single user (home user)
 - `DESKTOP`: User on a company network (MANAGED)
@@ -63,7 +60,7 @@ All options:
 $ px-user-identity --operation INIT --security <DEFAULT|TPM> --type <STANDALONE|DESKTOP|APPLICATION> --keytype <RSA:2048|RSA:3072|ECC:p256|ECC:p384|ECC:p521> --firstname <FIRST_NAME> --lastname <LAST_NAME> --email <EMAIL>
 ```
 
-A good default for devices without TPM2 support is:
+A good default for user without TPM2 support is:
 
 ```bash
 $ px-user-identity --operation INIT --security DEFAULT --type <STANDALONE|DESKTOP|APPLICATION> --keytype ECC:p256 --firstname <FIRST_NAME> --lastname <LAST_NAME> --email <EMAIL>
@@ -124,7 +121,7 @@ userType: STANDALONE
 px-user-identity --operation INIT --security <DEFAULT|TPM> --force TRUE
 ```
 
-### Get the JWK for the device public key
+### Get the JWK for the user public key
 
 ```bash
 px-user-identity --operation GET_JWK
